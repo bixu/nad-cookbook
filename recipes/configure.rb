@@ -21,6 +21,7 @@ end
 
 case node[:platform]  
 when 'smartos'
+include_recipe 'smf'
 smf "nad" do
   user "nobody"
   start_command "/opt/circonus/sbin/nad -c /opt/circonus/etc/node-agent.d -p #{node['privateaddress']}:#{node['nad']['port']}"
